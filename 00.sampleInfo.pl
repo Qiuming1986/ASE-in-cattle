@@ -27,9 +27,6 @@ while(<IN1>){
 	if (($F[25] eq "not_applicable") && ($F[28] eq "not_applicable")){
 		print "$_\n";
 	}
-	if (/PRJNA723165/){
-		print "$_\n";
-	}
 	next if (exists $sample{$F[2]}); #avoid re-count in the time of one sample vs multuple run
 	$sample{$F[2]}=1;
 	if ($F[25] ne "NA"){
