@@ -6,3 +6,5 @@ perl 00.sampleInfo.pl SraRunTable.txt SraRunTable.txt originNameVsReName SraRunT
 02.mapping the clean reads were mapped to the reference assembly using STAR and hisat2, and the mapping status were calculated using samtools 
 
 03.detecting SNP using gatk 
+
+04.imputation using beagle
