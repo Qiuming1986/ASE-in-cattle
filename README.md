@@ -10,3 +10,5 @@ perl 00.sampleInfo.pl SraRunTable.txt SraRunTable.txt originNameVsReName SraRunT
 04.merge SNP using gatk, annotate using ANNOVAR
 
 05.imputation using beagle
+
+06.ase detecting base on the reads count for each allele of each individual at heterozygous sites supplied by gatk
