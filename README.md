@@ -7,4 +7,6 @@ perl 00.sampleInfo.pl SraRunTable.txt SraRunTable.txt originNameVsReName SraRunT
 
 03.detecting SNP using gatk 
 
-04.imputation using beagle
+04.merge SNP using gatk, annotate using ANNOVAR
+
+05.imputation using beagle
