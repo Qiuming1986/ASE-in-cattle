@@ -1,5 +1,5 @@
 00.step treat with SraRunTable.txt downloaded from NCBI SRA database. ###
-perl 00.sampleInfo.pl SraRunTable.txt SraRunTable.txt originNameVsReName SraRunTableFilt.txt
+perl 00.sampleInfo.pl SraRunTable.txt SraRunTable.txt originNameVsReName SraRunTableFilt.txt  ###originNameVsReName is the file of NCBI tissue name VS the defined name in our study
 
 01.qc perform quality control of raw reads using Trimmomatic software and calculate the maximum length of reads
 
