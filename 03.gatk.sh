@@ -2,8 +2,7 @@ samtools view -b -F 4 -q 1 SRR13051360.bam > SRR13051360.accept.bam
 java -jar picard.jar ReorderSam I=SRR13051360.accept.bam O=SRR13051360.reorder.bam SD=/home/chenqiuming/cattle/genome/ARS-UCD1.2_Btau5.0.1Y.dict VALIDATION_STRINGENCY=LENIENT
 java -jar picard.jar SortSam INPUT=SRR13051360.reorder.bam OUTPUT=SRR13051360.sort.bam SORT_ORDER=coordinate VALIDATION_STRINGENCY=LENIENT
 java -jar picard.jar AddOrReplaceReadGroups I=SRR13051360.sort.bam O=SRR13051360.added_sorted.bam SO=coordinate RGID=SRR13051360 RGLB=SRR13051360 RGPL=ILLUMINA RGPU=SRR13051360 RGSM=SRR13051360 CREATE_INDEX=true
-java -jar picard.jar MarkDuplicates I=SRR13051360.added_sorted.bam O=SRR13051360.sort.dedup.bam M=SRR13051360.marked_dup_metrics.txt REMOVE_DUPLICATES=true CREATE_INDEX=true VALIDATION_STRINGENCY=LENIENT
-gatk SplitNCigarReads -R /home/chenqiuming/cattle/genome/ARS-UCD1.2_Btau5.0.1Y.fa -I SRR13051360.sort.dedup.bam -O SRR13051360.split.bam
+gatk SplitNCigarReads -R /home/chenqiuming/cattle/genome/ARS-UCD1.2_Btau5.0.1Y.fa -I SRR13051360.added_sorted.bam -O SRR13051360.split.bam
 gatk BaseRecalibrator -I SRR13051360.split.bam -R /home/chenqiuming/cattle/genome/ARS-UCD1.2_Btau5.0.1Y.fa --known-sites /home/chenqiuming/cattle/genome/ARS1.2PlusY_BQSR.vcf.gz -O SRR13051360.recal_data.table
 gatk ApplyBQSR --bqsr-recal-file SRR13051360.recal_data.table -R /home/chenqiuming/cattle/genome/ARS-UCD1.2_Btau5.0.1Y.fa -I SRR13051360.split.bam -O SRR13051360.recal.bam
 gatk HaplotypeCaller --native-pair-hmm-threads 10 -R /home/chenqiuming/cattle/genome/ARS-UCD1.2_Btau5.0.1Y.fa -I SRR13051360.recal.bam --minimum-mapping-quality 30 -ERC GVCF -L 1 -O /home/chenqiuming/ljq/05.gvcf/SRR13051360/SRR13051360.1.g.vcf.gz
