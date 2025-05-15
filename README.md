@@ -1,3 +1,6 @@
+A multi-tissue atlas of allelic-specific expression
+Qiuming Chen
+published on BMC Biology
 00.step treat with SraRunTable.txt downloaded from NCBI SRA database. ###
 perl 00.sampleInfo.pl SraRunTable.txt SraRunTable.txt originNameVsReName SraRunTableFilt.txt  ###originNameVsReName is the file of NCBI tissue name VS the defined name in our study
 
